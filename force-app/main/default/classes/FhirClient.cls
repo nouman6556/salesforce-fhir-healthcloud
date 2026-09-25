@@ -5,11 +5,11 @@
  */
 public with sharing class FhirClient {
 
-    public class FhirException extends Exception {}
-
     @TestVisible
     private static final String NAMED_CREDENTIAL = 'callout:FHIR_Server';
     private static final Integer TIMEOUT_MS = 20000;
+
+    public class FhirException extends Exception {}
 
     /** GET a single resource, e.g. get('Patient', '123'). */
     public Map<String, Object> getResource(String resourceType, String id) {
