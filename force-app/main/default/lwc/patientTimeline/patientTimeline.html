@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Clinical Timeline" icon-name="standard:timeline">
+        <div slot="actions">
+            <lightning-button-group>
+                <template for:each={filters} for:item="f">
+                    <lightning-button key={f.value} label={f.label} value={f.value}
+                        variant={f.variant} onclick={handleFilter}></lightning-button>
+                </template>
+            </lightning-button-group>
+        </div>
+        <div class="slds-p-horizontal_medium">
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading timeline" size="small"></lightning-spinner>
+            </template>
+            <template lwc:elseif={error}>
+                <div class="slds-text-color_error">{error}</div>
+            </template>
+            <template lwc:elseif={hasEvents}>
+                <ul class="slds-timeline">
+                    <template for:each={visibleEvents} for:item="evt">
+                        <li key={evt.id} class="timeline-item">
+                            <lightning-icon icon-name={evt.icon} size="small" class="slds-m-right_small"></lightning-icon>
+                            <div class="timeline-body">
+                                <p class="slds-text-title_bold">{evt.title}</p>
+                                <p class="slds-text-body_small">{evt.detail}</p>
+                            </div>
+                            <lightning-formatted-date-time value={evt.eventDate} class="timeline-date"></lightning-formatted-date-time>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template lwc:else>
+                <p class="slds-text-color_weak">No clinical events found.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
