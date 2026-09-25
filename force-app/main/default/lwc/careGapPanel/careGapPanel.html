@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title={title} icon-name="standard:care_request_reviewer">
+        <template lwc:if={gaps}>
+            <lightning-datatable key-field="loincCode" data={gaps} columns={columns}
+                hide-checkbox-column></lightning-datatable>
+        </template>
+        <template lwc:if={error}>
+            <p class="slds-p-around_medium slds-text-color_error">{error}</p>
+        </template>
+    </lightning-card>
+</template>
