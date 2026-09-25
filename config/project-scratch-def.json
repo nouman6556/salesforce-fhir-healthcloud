@@ -1,0 +1,6 @@
+{
+  "orgName": "FHIR Health Cloud Demo",
+  "edition": "Developer",
+  "features": ["EnableSetPasswordInApi"],
+  "settings": { "lightningExperienceSettings": { "enableS1DesktopEnabled": true } }
+}
