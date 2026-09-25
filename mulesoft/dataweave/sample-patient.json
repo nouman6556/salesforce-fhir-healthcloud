@@ -1,0 +1,10 @@
+{
+  "resourceType": "Patient",
+  "id": "example-123",
+  "identifier": [{ "type": { "coding": [{ "code": "MR" }] }, "value": "MRN-000451" }],
+  "name": [{ "use": "official", "family": "Doe", "given": ["Jane", "A"] }],
+  "gender": "female",
+  "birthDate": "1978-04-12",
+  "telecom": [{ "system": "phone", "value": "555-0100" }, { "system": "email", "value": "jane.doe@example.com" }],
+  "address": [{ "line": ["100 Main St"], "city": "Chicago", "state": "IL", "postalCode": "60601" }]
+}
